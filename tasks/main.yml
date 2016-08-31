@@ -10,6 +10,13 @@
 - name: UI - Link monitoring directory
   file: src={{ panel_src_path }} dest={{ panel_dest_path }} state=link force=no
 
+- name: Add dashboard OpenStack in monitoring panel
+  lineinfile:
+    dest={{ panel_src_path }}/config/local_settings.py
+    regexp=^GRAFANA_LINKS
+    line="GRAFANA_LINKS=[{'title':_('Dashboard'), 'fileName':'openstack.json'},]"
+
+
 - name: UI - Fetch grafana tar.gz file
   get_url: dest=/root/hpcloud-mon-grafana-{{grafana_version}}.tar.gz url={{github_tarball_url}}/{{grafana_version}}
   register: download
