@@ -15,5 +15,6 @@ ui_dest_path: "{{ dashboard_path }}local/enabled/"
 ui_src_path: "{{panel_src_path}}enabled/"
 ui_py_file: _50_admin_add_monitoring_panel.py
 
+apache2_horizon_conf_file: /etc/apache2/sites-available/15-horizon_vhost.conf
 
 

@@ -37,7 +37,7 @@
 
 - name: UI - Enable grafana in Apache
   lineinfile:
-    dest: /etc/apache2/sites-available/horizon.conf
+    dest: "{{apache2_horizon_conf_file}}"
     line: '    Alias /grafana {{ grafana_dest }}'
     insertafter: ' Alias '
     state: present
